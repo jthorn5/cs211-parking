@@ -13,7 +13,7 @@ public class Main {
 		long before = System.currentTimeMillis();
 		
 		//Create API context
-		context = new GeoApiContext.Builder().apiKey("AIzaSyBLQW9KPJ96roANS4Nn3eUgKXgVnZS7F_U").build();
+		context = new GeoApiContext.Builder().apiKey("KEY_HERE").build();
 		
 		System.out.println(System.currentTimeMillis() - before);
 		
