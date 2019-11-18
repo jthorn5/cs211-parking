@@ -32,4 +32,28 @@ public class Driver {
 	public void setGnumber(int gNumber) {
 		this.gNumber = gNumber;
 	}
+	
+	public void setFullName(String fullname) {
+		this.fullName = fullname;
+	}
+	
+	public ParkingPass getPass() {
+		return this.pass;
+	}
+	
+	public int getLicensePlate() {
+		return this.licensePlate;
+	}
+	
+	public boolean getOnCampus() {
+		return this.onCampus;
+	}
+	
+	public int getGnumber() {
+		return this.gNumber;
+	}
+	
+	public String getFullName() {
+		return this.fullName;
+	}
 }
