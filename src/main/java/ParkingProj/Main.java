@@ -1,10 +1,13 @@
-package MapsAPI;
+package ParkingProj;
 
 import java.io.IOException;
 import java.util.ArrayList;
 
 import com.google.maps.GeoApiContext;
 import com.google.maps.errors.ApiException;
+
+import maps.Route;
+import maps.SortRoutesByTime;
 
 public class Main {
 	public static GeoApiContext context;
@@ -13,7 +16,7 @@ public class Main {
 		long before = System.currentTimeMillis();
 		
 		//Create API context
-		context = new GeoApiContext.Builder().apiKey("KEY_HERE").build();
+		context = new GeoApiContext.Builder().apiKey("AIzaSyAtJs3U_R4QQn7erwwovN1WZMHSOJ50yCs").build();
 		
 		System.out.println(System.currentTimeMillis() - before);
 		
@@ -42,6 +45,7 @@ public class Main {
 			for (Route r : routes) {
 				if (!r.isComplete()) {
 					wait = true;
+					break;
 				}
 			}
 		}

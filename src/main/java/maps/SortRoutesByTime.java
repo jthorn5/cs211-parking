@@ -1,4 +1,4 @@
-package MapsAPI;
+package maps;
 
 import java.util.Comparator;
 

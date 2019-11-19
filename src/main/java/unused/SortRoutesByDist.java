@@ -1,6 +1,8 @@
-package MapsAPI;
+package unused;
 
 import java.util.Comparator;
+
+import maps.Route;
 
 public class SortRoutesByDist implements Comparator<Route> {
 

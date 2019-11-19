@@ -1,4 +1,4 @@
-package MapsAPI;
+package maps;
 
 import com.google.maps.DirectionsApi;
 import com.google.maps.DirectionsApiRequest;
@@ -6,6 +6,8 @@ import com.google.maps.PendingResult;
 import com.google.maps.model.DirectionsLeg;
 import com.google.maps.model.DirectionsResult;
 import com.google.maps.model.TravelMode;
+
+import ParkingProj.Main;
 
 public class Route {
 	private String origin;
