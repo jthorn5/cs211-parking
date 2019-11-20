@@ -1,0 +1,28 @@
+AIzaSyAtJs3U_R4QQn7erwwovN1WZMHSOJ50yCs
+//DirectionsApiRequest req = DirectionsApi.getDirections(context, "Lot K General, Patriot Circle, Fairfax, VA", "Starbucks, Johnson Center, 4400 University Dr Johnson Center, Fairfax, VA 22030")
+
+/*
+ * Gson gson = new GsonBuilder().setPrettyPrinting().create();
+ * 
+ * //Sample /* GeocodingResult[] results = GeocodingApi.geocode(context,
+ * "1600 Amphitheatre Parkway Mountain View, CA 94043").await(); Gson gson = new
+ * GsonBuilder().setPrettyPrinting().create();
+ * System.out.println(gson.toJson(results[0].addressComponents));
+ */
+
+/*
+ * DirectionsResult result = DirectionsApi.getDirections(context,
+ * "Lot K General, Patriot Circle, Fairfax, VA",
+ * "Starbucks, Johnson Center, 4400 University Dr Johnson Center, Fairfax, VA 22030"
+ * ) .mode(TravelMode.WALKING).await();
+ */
+
+/*
+ * DirectionsResult result = DirectionsApi.getDirections(context,
+ * "Lot K General, Patriot Circle, Fairfax, VA",
+ * "Starbucks, Johnson Center, 4400 University Dr Johnson Center, Fairfax, VA 22030"
+ * ) .mode(TravelMode.WALKING).await(); System.out.println("Sync");
+ * System.out.println(result.routes[0].legs[0].duration);
+ * System.out.println(result.routes[0].legs[0].distance);
+ */
+//System.out.println(gson.toJson(result.routes[0].legs[0]));
