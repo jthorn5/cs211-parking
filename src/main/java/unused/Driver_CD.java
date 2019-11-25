@@ -1,15 +1,16 @@
+package unused;
 
-public class Driver {
-	private ParkingPass pass;
+public class Driver_CD {
+	private ParkingPass_CD pass;
 	private int licensePlate;
 	private boolean onCampus;
 	private int gNumber;
 	private String fullName;
-	public Driver() {
+	public Driver_CD() {
 		
 	}
 	
-	public Driver(ParkingPass pass, int licensePlate, boolean onCampus, int gNumber, String fullName) {
+	public Driver_CD(ParkingPass_CD pass, int licensePlate, boolean onCampus, int gNumber, String fullName) {
 		this.pass = pass;
 		this.licensePlate = licensePlate;
 		this.onCampus = onCampus;
@@ -17,7 +18,7 @@ public class Driver {
 		this.fullName = fullName;
 		
 	}
-	public void setPass(ParkingPass pass) {
+	public void setPass(ParkingPass_CD pass) {
 		this.pass = pass;
 	}
 	
@@ -37,7 +38,7 @@ public class Driver {
 		this.fullName = fullname;
 	}
 	
-	public ParkingPass getPass() {
+	public ParkingPass_CD getPass() {
 		return this.pass;
 	}
 	

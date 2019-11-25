@@ -37,7 +37,6 @@ public class ParkingLot extends ParkingLocation implements ParkingAvailability {
     public boolean addCar(Driver d) {
         if (isAvailable(d)) {
             for (int i = 0; i < spaces.length; i++) {
-
                 if (spaces[i].isAvailable(d)) {
                     spaces[i].setLicenseNum(d.getLicensePlate());
                     return true;

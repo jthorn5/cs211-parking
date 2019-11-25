@@ -22,6 +22,4 @@ public class ParkingPass {
     public ArrayList<Restrictions> getGroups() {
         return groups;
     }
-    
-    
 }

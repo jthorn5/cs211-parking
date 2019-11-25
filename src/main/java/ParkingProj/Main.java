@@ -1,7 +1,10 @@
 package ParkingProj;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 import com.google.maps.GeoApiContext;
 import com.google.maps.errors.ApiException;
@@ -11,35 +14,40 @@ import maps.SortRoutesByTime;
 
 public class Main {
 	public static GeoApiContext context;
-	
+
 	public static void main(String[] args) throws ApiException, InterruptedException, IOException {
-		long before = System.currentTimeMillis();
-		
-		//Create API context
-		context = new GeoApiContext.Builder().apiKey("AIzaSyAtJs3U_R4QQn7erwwovN1WZMHSOJ50yCs").build();
-		
-		System.out.println(System.currentTimeMillis() - before);
-		
-		// read parking locations from config
+		//Read in API key
+		Scanner sc = new Scanner(new File("key.txt"));
+		String key = "";
+		if (sc.hasNextLine()) {
+			key = sc.nextLine();
+		}
+		sc.close();
+
+		//TODO read parking locations from config
+		readConfig();
 		ArrayList<String> locations = new ArrayList<String>();
 		locations.add("Lot K General, Patriot Circle, Fairfax, VA");
 		locations.add("Lot M GMU, University Dr, Fairfax, VA 22030");
 
-		//get desired destination from user
+		//TODO get desired destination from user
 		String destination = "Starbucks, Johnson Center, 4400 University Dr Johnson Center, Fairfax, VA 22030";
+		// TODO choose from preset
 		
-		//TODO check that location is on campus
+		//Create API context
+		context = new GeoApiContext.Builder().apiKey(key).build();
 		
-		//Make API requests
+		// Make API requests
 		ArrayList<Route> routes = new ArrayList<Route>();
 		for (String loc : locations) {
 			routes.add(new Route(loc, destination));
 		}
-		
-		//Wait until all routes are calculated
+
+		// Wait until all routes are calculated
+		System.out.println("Calculating optimal location...");
 		boolean wait = true;
 		while (wait) {
-			System.out.println("Waiting 200ms");
+			//System.out.println("Waiting 200ms");
 			Thread.sleep(200);
 			wait = false;
 			for (Route r : routes) {
@@ -49,12 +57,37 @@ public class Main {
 				}
 			}
 		}
+		
 		System.out.println();
 		routes.sort(new SortRoutesByTime());
-		/*for (Route r : routes) {
-			System.out.println(r);
-		}*/
+		/*
+		 * for (Route r : routes) { System.out.println(r); }
+		 */
 		System.out.println(routes.get(0));
-		System.out.println(System.currentTimeMillis() - before);
+	}
+	public static void readConfig() throws FileNotFoundException {
+		Scanner sc = new Scanner(new File("ParkingData.txt"));
+		String line = "";
+		String[] format = {"Location", "Levels", "Faculty spaces","General Spaces","Reserved Spaces","Disabled Spaces","Visitor Spaces"};
+		while (sc.hasNextLine()) {
+			line = sc.nextLine();
+			if (line.startsWith(format[0]+": ")) {
+				String[] data = new String[format.length];
+				System.out.println("===");
+				for (int i = 0; i < data.length; i++) {
+					//System.out.println(line);
+					data[i] = line.split(format[i]+": ")[1];
+					if (!sc.hasNextLine()) break;
+					line = sc.nextLine();
+				}
+				for (int i = 0; i < data.length; i++) {
+					System.out.println(data[i]);
+				}
+				
+			}else {
+				//System.out.println(line);
+			}
+		}
+		sc.close();
 	}
 }

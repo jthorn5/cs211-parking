@@ -1,14 +1,15 @@
+package unused;
 
-public class ParkingPass {
+public class ParkingPass_CD {
 	private String parkingLot;
 	private String typeOfDriver;
 	
-	public ParkingPass() {
+	public ParkingPass_CD() {
 		this.parkingLot = "General";
 		this.typeOfDriver = "Student";
 	}
 	
-	public ParkingPass(String parkingLot, String typeOfDriver) {
+	public ParkingPass_CD(String parkingLot, String typeOfDriver) {
 		this.parkingLot = parkingLot;
 		this.typeOfDriver = typeOfDriver;
 	}
