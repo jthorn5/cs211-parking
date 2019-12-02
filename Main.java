@@ -17,10 +17,28 @@ public class Main {
 		
 		System.out.println(System.currentTimeMillis() - before);
 		
+		//list of parking locations
+		// lot a, lot c, lot k, lot l, lot m, lot o, lot p, west campus, rapidan rr, lot r, lot i, lot j, mason pond,
+		//global center, shenn, rap deck
+		
 		// read parking locations from config
 		ArrayList<String> locations = new ArrayList<String>();
+		locations.add("Lot A GMU, Fairfax, VA");
+		locations.add("Lot C, Fairfax, VA");
 		locations.add("Lot K General, Patriot Circle, Fairfax, VA");
-		locations.add("Lot M GMU, University Dr, Fairfax, VA 22030");
+		locations.add("LOT L General Permit Parking, Fairfax, VA");
+		locations.add("Lot M GMU, University Dr, Fairfax, VA"); 
+		locations.add("Lot O General, Fairfax, VA");
+		locations.add("Lot P, University Drive, Fairfax, VA");
+		locations.add("West Campus, Fairfax, VA");
+		locations.add("Rapidan River Road, Fairfax, VA");
+		locations.add("Lot R Resident, Fairfax, VA");
+		locations.add("Lot I Reserved, Aquia Creek Lane, Fairfax, VA");
+		locations.add("Lot J, Mason Pond Drive, Fairfax, VA");
+		locations.add("Mason Pond Parking Deck, Fairfax, VA");
+		locations.add("Mason Global Center (INTO George Mason University), Mason Pond Drive, Fairfax, VA");
+		locations.add("Shenandoah Parking Deck, Fairfax, VA");
+		locations.add("Rappahannock River Parking Deck, Rappahannock River Parking Deck, Fairfax, VA");
 
 		//get desired destination from user
 		String destination = "Starbucks, Johnson Center, 4400 University Dr Johnson Center, Fairfax, VA 22030";
