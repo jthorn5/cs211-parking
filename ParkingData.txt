@@ -15,6 +15,7 @@ Rap deck is only parking area with all types of spaces
 Parking map link:  https://info.gmu.edu/wp-content/uploads/Fairfax-Parking-Map_2019.pdf 
 
 Location: Lot A
+Google Name: Lot A GMU, Fairfax, VA
 Levels: 1
 Faculty spaces: 139
 General Spaces: 1049
@@ -23,6 +24,7 @@ Disabled Spaces: 24
 Visitor Spaces: 0
 
 Location: Lot C
+Google Name: Lot C,  Fairfax, VA
 Levels: 1
 Faculty spaces: 0
 General Spaces: 599
@@ -31,6 +33,7 @@ Disabled Spaces: 2
 Visitor Spaces: 4
 
 Location: Lot K
+Google Name: Lot K General, Patriot Circle, Fairfax, VA
 Levels: 1
 Faculty spaces: 0
 General Spaces: 1493
@@ -39,6 +42,7 @@ Disabled Spaces: 0
 Visitor Spaces: 0
 
 Location: Lot L
+Google Name: LOT L General Permit Parking, Fairfax, VA
 Levels: 1
 Faculty spaces: 0
 General Spaces: 466
@@ -47,6 +51,7 @@ Disabled Spaces: 0
 Visitor Spaces: 0
 
 Location: Lot M
+Google Name: Lot M GMU, University Dr, Fairfax, VA
 Levels: 1
 Faculty spaces: 0
 General Spaces: 152
@@ -55,6 +60,7 @@ Disabled Spaces: 0
 Visitor Spaces: 0
 
 Location: Lot O
+Google Name: Lot O General, Fairfax, VA
 Levels: 1
 Faculty spaces: 9
 General Spaces: 202
@@ -63,6 +69,7 @@ Disabled Spaces: 16
 Visitor Spaces: 0
 
 Location: Lot P
+Google Name: Lot P, University Dr, Fairfax, VA
 Levels: 1
 Faculty spaces: 16
 General Spaces: 199
@@ -71,6 +78,7 @@ Disabled Spaces: 4
 Visitor Spaces: 0
 
 Location: West Capmus
+Google Name: West Campus, Fairfax, VA
 Levels: 1
 Faculty spaces: 0
 General Spaces: 543
@@ -79,6 +87,7 @@ Disabled Spaces: 20
 Visitor Spaces: 0
 
 Location: Rapidan River Road
+Google Name: Rapidan River Road, Fairfax, VA
 Levels: 1
 Faculty spaces: 0
 General Spaces: 209
@@ -87,6 +96,7 @@ Disabled Spaces: 4
 Visitor Spaces: 0
 
 Location: Lot R
+Google Name: Lot R Resident, Fairfax, VA
 Levels: 1
 Faculty spaces: 0
 General Spaces: 0
@@ -95,6 +105,7 @@ Disabled Spaces: 8
 Visitor Spaces: 0
 
 Location: Lot I
+Google Name: Lot I Reserved, Aquia Creek Lane, Fairfax, VA
 Levels: 1
 Faculty spaces: 71
 General Spaces: 0
@@ -103,6 +114,7 @@ Disabled Spaces: 6
 Visitor Spaces: 0
 
 Location: Lot J
+Google Name: Lot J, Mason Pond Drive, Fairfax, VA
 Levels: 1
 Faculty spaces: 129
 General Spaces: 0
@@ -111,6 +123,7 @@ Disabled Spaces: 0
 Visitor Spaces: 0
 
 Location: Mason Pond Deck
+Google Name: Mason Pond Parking Deck, Fairfax, VA
 Levels: 5
 Faculty spaces: 0
 General Spaces: 0
@@ -119,6 +132,7 @@ Disabled Spaces: 37
 Visitor Spaces: 353
 
 Location: Mason Global Center
+Google Name: Mason Global Center (INTO George Mason University), Mason Pond Drive, Fairfax, VA
 Levels: 2
 Faculty spaces: 0
 General Spaces: 0
@@ -127,6 +141,7 @@ Disabled Spaces: 7
 Visitor Spaces: 0
 
 Location: Rappahannock River Deck 
+Google Name: Rappahannock River Parking Deck, Fairfax, VA
 Levels: 5
 Faculty spaces: 185
 General Spaces: 729
@@ -135,6 +150,7 @@ Disabled Spaces: 35
 Visitor Spaces: 166
 
 Location: Shenandoah Deck 
+Google Name: Shenandoah Parking Deck, Fairfax, VA
 Levels: 4
 Faculty spaces: 0
 General Spaces: 0
