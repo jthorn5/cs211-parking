@@ -82,7 +82,7 @@ public class Main {
 	public static void readConfig() throws FileNotFoundException {
 		Scanner sc = new Scanner(new File("ParkingData.txt"));
 		String line = "";
-		String[] format = {"Location", "Levels", "Faculty spaces","General Spaces","Reserved Spaces","Disabled Spaces","Visitor Spaces"};
+		String[] format = {"Location", "Google Name", "Levels", "Faculty spaces","General Spaces","Reserved Spaces","Disabled Spaces","Visitor Spaces"};
 		while (sc.hasNextLine()) {
 			line = sc.nextLine();
 			if (line.startsWith(format[0]+": ")) {

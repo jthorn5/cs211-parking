@@ -1,5 +1,6 @@
-GMU Parking Project
+Parking Config
 
+GMU Notes:
 Handicapped drivers must purchase valid pass for whichever lot they wish to park in
 
 spots are all permit specific, no "numbered" spaces
@@ -13,6 +14,9 @@ faculty also pay for passes but have special spaces in the lots
 Rap deck is only parking area with all types of spaces
 
 Parking map link:  https://info.gmu.edu/wp-content/uploads/Fairfax-Parking-Map_2019.pdf 
+
+Center: George Mason Statue, Fairfax, VA
+Radius(ft): 2640
 
 Location: Lot A
 Google Name: Lot A GMU, Fairfax, VA
