@@ -9,6 +9,7 @@ import java.util.Scanner;
 import com.google.maps.GeoApiContext;
 import com.google.maps.errors.ApiException;
 
+import data.ParkingLocation;
 import maps.Route;
 import maps.SortRoutesByTime;
 
@@ -27,9 +28,9 @@ public class Main {
 		sc.close();
 
 		//TODO read parking locations from config
-		readConfig();
-		ArrayList<String> locations = new ArrayList<String>();
-		locations.add("Lot A GMU, Fairfax, VA");
+		
+		ArrayList<String> locations = readConfig();
+		/*locations.add("Lot A GMU, Fairfax, VA");
 		locations.add("Lot C, Fairfax, VA");
 		locations.add("Lot K General, Patriot Circle, Fairfax, VA");
 		locations.add("LOT L General Permit Parking, Fairfax, VA");
@@ -44,7 +45,7 @@ public class Main {
 		locations.add("Mason Pond Parking Deck, Fairfax, VA");
 		locations.add("Mason Global Center (INTO George Mason University), Mason Pond Drive, Fairfax, VA");
 		locations.add("Shenandoah Parking Deck, Fairfax, VA");
-		locations.add("Rappahannock River Parking Deck, Rappahannock River Parking Deck, Fairfax, VA");
+		locations.add("Rappahannock River Parking Deck, Rappahannock River Parking Deck, Fairfax, VA");*/
 
 		//TODO get desired destination from user
 		String destination = "Starbucks, Johnson Center, 4400 University Dr Johnson Center, Fairfax, VA 22030";
@@ -80,7 +81,8 @@ public class Main {
 		 */
 		System.out.println(routes.get(0));
 	}
-	public static void readConfig() throws FileNotFoundException, NumberFormatException {
+	public static ArrayList<ParkingLocation> readConfig() throws FileNotFoundException, NumberFormatException {
+		ArrayList<ParkingLocation> locations = new ArrayList<ParkingLocation>();
 		Scanner sc = new Scanner(new File("ParkingData.txt"));
 		String line = "";
 		String[] format = {"Location", "Google Name", "Levels", "Faculty spaces","General Spaces","Reserved Spaces","Disabled Spaces","Visitor Spaces"};
@@ -103,12 +105,12 @@ public class Main {
 					if (!sc.hasNextLine()) break;
 					line = sc.nextLine();
 				}
-				/*for (int i = 0; i < data.length; i++) {
-					System.out.println(data[i]);
-				}*/
+				//TODO construct ParkingLocation and add to locations here
+				//stringData holds Location and Google Name, and intData holds the rest.
 				
 			}
 		}
 		sc.close();
+		return locations;
 	}
 }
