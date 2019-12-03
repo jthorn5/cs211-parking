@@ -1,10 +1,6 @@
 package data;
 
-/**
- *
- * @author marianaritchie
- */
-public class ParkingSpace implements ParkingAvailability {
+public class ParkingSpace {
     private int price;
     private Restrictions restrictions;
     private String lot;

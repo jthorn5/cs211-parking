@@ -1,10 +1,7 @@
 package data;
 
-/**
- *
- * @author marianaritchie
- */
-public class ParkingDeck extends ParkingLocation implements ParkingAvailability {
+
+public class ParkingDeck extends ParkingLocation {
 
     private ParkingSpace[][] spaces;
     private String lotName;
@@ -36,7 +33,6 @@ public class ParkingDeck extends ParkingLocation implements ParkingAvailability 
         }
     }
 
-    @Override
     public boolean isAvailable(Driver d) {
         for (int i = 0; i < spaces.length; i++) {
             for (int j = 0; j < spaces[i].length; j++) {
