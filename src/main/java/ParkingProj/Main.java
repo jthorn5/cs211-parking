@@ -84,27 +84,29 @@ public class Main {
 		Scanner sc = new Scanner(new File("ParkingData.txt"));
 		String line = "";
 		String[] format = {"Location", "Google Name", "Levels", "Faculty spaces","General Spaces","Reserved Spaces","Disabled Spaces","Visitor Spaces"};
+		int numStrings = 2;
+		String[] stringData = new String[numStrings];
+		int[] intData = new int[format.length-numStrings];
+		String tmpData;
 		while (sc.hasNextLine()) {
 			line = sc.nextLine();
 			if (line.startsWith(format[0]+": ")) {
-				String[] data = new String[format.length];
+				//String[] data = new String[format.length];
 				System.out.println("===");
-				for (int i = 0; i < data.length; i++) {
-					//System.out.println(line);
-					
-					data[i] = line.split(format[i]+": ")[1];
-					if(i>1){
-					   int w = Integer.parseInt(data[i]);
+				for (int i = 0; i < format.length; i++) {
+					tmpData = line.split(format[i]+": ")[1];
+					if (i < numStrings) {
+						stringData[i] = tmpData;
+					}else {
+						intData[i-numStrings] = Integer.parseInt(tmpData);
 					}
 					if (!sc.hasNextLine()) break;
 					line = sc.nextLine();
 				}
-				for (int i = 0; i < data.length; i++) {
+				/*for (int i = 0; i < data.length; i++) {
 					System.out.println(data[i]);
-				}
+				}*/
 				
-			}else {
-				//System.out.println(line);
 			}
 		}
 		sc.close();
