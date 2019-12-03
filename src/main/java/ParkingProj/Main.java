@@ -79,7 +79,7 @@ public class Main {
 		 */
 		System.out.println(routes.get(0));
 	}
-	public static void readConfig() throws FileNotFoundException {
+	public static void readConfig() throws FileNotFoundException, NumberFormatException {
 		Scanner sc = new Scanner(new File("ParkingData.txt"));
 		String line = "";
 		String[] format = {"Location", "Google Name", "Levels", "Faculty spaces","General Spaces","Reserved Spaces","Disabled Spaces","Visitor Spaces"};
@@ -90,7 +90,11 @@ public class Main {
 				System.out.println("===");
 				for (int i = 0; i < data.length; i++) {
 					//System.out.println(line);
+					
 					data[i] = line.split(format[i]+": ")[1];
+					if(i>1){
+					   int w = Integer.parseInt(data[i]);
+					}
 					if (!sc.hasNextLine()) break;
 					line = sc.nextLine();
 				}
