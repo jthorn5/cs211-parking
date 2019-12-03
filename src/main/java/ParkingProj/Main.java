@@ -16,6 +16,8 @@ public class Main {
 	public static GeoApiContext context;
 
 	public static void main(String[] args) throws ApiException, InterruptedException, IOException {
+		//System.out.println(Util.haversineFeet(36.12, -86.67, 33.94, -118.40)); //9470067.658832366 ft
+		//https://maps.googleapis.com/maps/api/staticmap?center=George+Mason+Statue,Fairfax,VA&zoom=15&size=600x300&maptype=roadmap&markers=color:blue|label:S|40.702147,-74.015794&markers=color:green|label:G|40.711614,-74.012318&markers=color:red|label:C|40.718217,-73.998284&key=AIzaSyAh3NSShZO_ErpmjyHRKtjtOFrwfk0t2FQ
 		//Read in API key
 		Scanner sc = new Scanner(new File("key.txt"));
 		String key = "";
@@ -46,7 +48,6 @@ public class Main {
 
 		//TODO get desired destination from user
 		String destination = "Starbucks, Johnson Center, 4400 University Dr Johnson Center, Fairfax, VA 22030";
-		// TODO choose from preset
 		
 		//Create API context
 		context = new GeoApiContext.Builder().apiKey(key).build();
