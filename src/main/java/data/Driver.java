@@ -1,23 +1,60 @@
 package data;
 
-/**
- *
- * @author marianaritchie
- */
 public class Driver {
-    private int licensePlate;
-    private ParkingPass parkingPass;
-
-    public Driver(int licensePlate, ParkingPass groups) {
-        this.licensePlate = licensePlate;
-        this.parkingPass = groups;
-    }
-
-    public int getLicensePlate() {
-        return licensePlate;
-    }
-
-    public ParkingPass getParkingPass() {
-        return parkingPass;
-    }
+	private ParkingPass pass;
+	private int licensePlate;
+	/*private boolean onCampus;
+	private int gNumber;
+	private String fullName;*/
+	public Driver() {
+		
+	}
+	
+	public Driver(int licensePlate, ParkingPass pass) {//  boolean onCampus, int gNumber, String fullName) {
+		this.pass = pass;
+		this.licensePlate = licensePlate;
+		/*this.onCampus = onCampus;
+		this.gNumber = gNumber;
+		this.fullName = fullName;*/
+		
+	}
+	public void setPass(ParkingPass pass) {
+		this.pass = pass;
+	}
+	
+	public void setLicensePlate(int licensePlate) {
+		this.licensePlate = licensePlate;
+	}
+	
+	public int getLicensePlate() {
+		return this.licensePlate;
+	}
+	
+	public ParkingPass getParkingPass() {
+		return this.pass;
+	}
+	
+	/*public void setOnCampus(boolean onCampus) {
+		this.onCampus = onCampus;
+	}
+	
+	public void setGnumber(int gNumber) {
+		this.gNumber = gNumber;
+	}
+	
+	public void setFullName(String fullname) {
+		this.fullName = fullname;
+	}
+	
+	public boolean getOnCampus() {
+		return this.onCampus;
+	}
+	
+	public int getGnumber() {
+		return this.gNumber;
+	}
+	
+	public String getFullName() {
+		return this.fullName;
+	}*/
 }

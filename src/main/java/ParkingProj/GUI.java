@@ -121,10 +121,7 @@ public class GUI {
         		JLabel Label = new JLabel("Map");
         		Label.setBounds(100,230,100,25);
                 newFrame.add(Label);
-                
         	}
         });
-        
     }
-
 }
