@@ -107,6 +107,24 @@ public class Main {
 				}
 				//TODO construct ParkingLocation and add to locations here
 				//stringData holds Location and Google Name, and intData holds the rest.
+				String Gname = stringData[1]; 
+   				 int totals = 0;
+   				 int levels = intData[0];
+   				 int handicapped = intData[4];
+   				 int price = 0;
+   				 int staff = intData[1];
+   				 int visitor = intData[5];
+    				 for(int k : intData){
+    				   totals += k; 
+    				 }
+    				 if(stringData[0].contains("Deck"){
+     				    ParkingDeck temp = new ParkingDeck(Gname, price, levels, totals, handicapped, staff, visitor);
+      				    locations.add(temp);
+    				 }
+    				 else{
+      				    ParkingLot temp = new ParkingLot(Gname,price, totals, handicapped, staff, visitor);
+      				    locations.add(temp);
+    				 }
 				
 			}
 		}
