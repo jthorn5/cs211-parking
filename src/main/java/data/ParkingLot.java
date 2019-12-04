@@ -5,22 +5,24 @@ package data;
  * @author marianaritchie
  */
 public class ParkingLot extends ParkingLocation {
-    private String lotName;
+    //private String locName;
     private ParkingSpace[] spaces;
-    private int pricePerSpace;
+    //private int pricePerSpace;
 
-    public ParkingLot(String lotName, ParkingSpace[] spaces, int pricePerSpace) {
-        this.lotName = lotName;
+    public ParkingLot(String locName, String locGoogleName, ParkingSpace[] spaces, int pricePerSpace) {
+        this.locName = locName;
+        this.locGoogleName = locGoogleName;
         this.spaces = spaces;
         this.pricePerSpace = pricePerSpace;
     }
 
-    public ParkingLot(String lotName, int pricePerSpace, int totalSpaces, int handiCapped, int staff, int visitors) {
-        this.lotName = lotName;
+    public ParkingLot(String locName, String locGoogleName, int pricePerSpace, int totalSpaces, int handiCapped, int staff, int visitors) {
+        this.locName = locName;
+        this.locGoogleName = locGoogleName;
         this.pricePerSpace = pricePerSpace;
         spaces = new ParkingSpace[totalSpaces];
         for (int i = 0; i < spaces.length; i++) {
-            spaces[i] = new ParkingSpace(pricePerSpace, lotName);
+            spaces[i] = new ParkingSpace(pricePerSpace, locName);
         }
         for (int i = 0; i < handiCapped; i++) {
             spaces[i].setRestrictions(Restrictions.HANDICAPPED);

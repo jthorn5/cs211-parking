@@ -4,22 +4,24 @@ package data;
 public class ParkingDeck extends ParkingLocation {
 
     private ParkingSpace[][] spaces;
-    private String lotName;
-    private int pricePerSpace;
+    //private String locName;
+    //private int pricePerSpace;
 
-    public ParkingDeck(ParkingSpace[][] spaces, String lotName, int pricePerSpace) {
+    public ParkingDeck(ParkingSpace[][] spaces, String locName, String locGoogleName, int pricePerSpace) {
         this.spaces = spaces;
-        this.lotName = lotName;
+        this.locName = locName;
+        this.locGoogleName = locGoogleName;
         this.pricePerSpace = pricePerSpace;
     }
 
-    public ParkingDeck(String lotName, int pricePerSpace, int levels, int totalSpaces, int handiCapped, int staff, int visitors) {
-        this.lotName = lotName;
+    public ParkingDeck(String locName, String locGoogleName, int pricePerSpace, int levels, int totalSpaces, int handiCapped, int staff, int visitors) {
+        this.locName = locName;
+        this.locGoogleName = locGoogleName;
         this.pricePerSpace = pricePerSpace;
         spaces = new ParkingSpace[levels][totalSpaces / levels];
         for (int i = 0; i < spaces.length; i++) {
             for (int j = 0; j < spaces[i].length; j++) {
-                spaces[i][j] = new ParkingSpace(pricePerSpace, lotName);
+                spaces[i][j] = new ParkingSpace(pricePerSpace, locName);
             }
         }
         for (int i = 0; i < handiCapped; i++) {
