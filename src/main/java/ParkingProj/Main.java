@@ -3,7 +3,11 @@ package ParkingProj;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 import com.google.maps.GeoApiContext;
 import com.google.maps.errors.ApiException;
@@ -24,13 +28,21 @@ public class Main {
 		String key = readKey();
 
 		ArrayList<ParkingLocation> locations = readConfigSafe();
-
+		
 		// Create API context
-		context = new GeoApiContext.Builder().apiKey(key).build();
-
+		//context = new GeoApiContext.Builder().apiKey(key).build();
+		
 		// TODO get desired destination from user
 		String destination = "Starbucks, Johnson Center, 4400 University Dr Johnson Center, Fairfax, VA 22030";
-
+		
+		HashMap<String,ParkingLocation> locNames = new HashMap<String,ParkingLocation>();
+		for (ParkingLocation l : locations) {
+			locNames.put(l.getLocName(), l);
+		}
+		
+		GUI.initGui(new ArrayList<String>(locNames.keySet()));
+		
+		/*TODO
 		ArrayList<Route> routes = new ArrayList<Route>();
 		for (ParkingLocation loc : locations) {
 			routes.add(new Route(loc, destination));
@@ -54,7 +66,7 @@ public class Main {
 		routes.sort(new SortRoutesByTime());
 
 		System.out.println(routes.get(0));
-
+		*/
 	}
 
 	public static String readKey() {
@@ -118,7 +130,7 @@ public class Main {
 				for (int i = 1; i < intData.length; i++) {
 					totalSpaces += intData[i];
 				}
-
+				//System.out.println(name);
 				if (intData[0] > 1) { // Number of levels
 					locs.add(new ParkingDeck(name, gName, price, levels, totalSpaces, handicapped, staff, visitor));
 				} else {
@@ -127,6 +139,7 @@ public class Main {
 			}
 		}
 		sc.close();
+		//System.out.println(locs);
 		return locs;
 	}
 

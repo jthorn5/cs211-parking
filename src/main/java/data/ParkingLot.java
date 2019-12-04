@@ -5,9 +5,8 @@ package data;
  * @author marianaritchie
  */
 public class ParkingLot extends ParkingLocation {
-    private String locName;
-    private ParkingSpace[] spaces;
-    private int pricePerSpace;
+
+	private ParkingSpace[] spaces;
 
     public ParkingLot(String locName, String locGoogleName, ParkingSpace[] spaces, int pricePerSpace) {
         this.locName = locName;

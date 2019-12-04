@@ -2,6 +2,9 @@ package ParkingProj;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -9,12 +12,22 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JCheckBox;
 import javax.swing.JTextArea;
+
+import data.Restrictions;
 public class GUI {
-    
-    public static void main(String[] args) {    
+	
+	private static JCheckBox[] checkLocs;
+	private static JCheckBox[] restrictions;
+	private static JTextArea dest;
+	
+	private static final int width = 640;
+	private static final int height = 480;
+	
+    public static void initGui(ArrayList<String> names) {    
         // Creating instance of JFrame
-        JFrame frame = new JFrame("My First Swing Example");
-        frame.setSize(960, 540);
+        JFrame frame = new JFrame("Parking Project");
+        frame.setSize(width, height);
+        frame.setLocationRelativeTo(null);
         //frame.setExtendedState(JFrame.MAXIMIZED_BOTH); 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -31,13 +44,14 @@ public class GUI {
         /* calling user defined method for adding components
          * to the panel.
          */
-        placeComponents(panel);
+        
+        placeComponents(panel,names);
 
         // Setting the frame visibility to true
         frame.setVisible(true);
     }
 
-    private static void placeComponents(JPanel panel) {
+    public static void placeComponents(JPanel panel, ArrayList<String> names) {
 
         /* We will discuss about layouts in the later sections
          * of this tutorial. For now we are setting the layout 
@@ -47,66 +61,94 @@ public class GUI {
 
         // Creating JLabel
         JLabel userLabel = new JLabel("Parking Search");
+        userLabel.setFont(userLabel.getFont().deriveFont(24.0f));
         /* This method specifies the location and size
          * of component. setBounds(x, y, width, height)
-         * here (x,y) are cordinates from the top left 
+         * here (x,y) are coordinates from the top left 
          * corner and remaining two arguments are the width
          * and height of the component.
          */
-        userLabel.setBounds(200,20,100,25);
+        userLabel.setBounds(200,10,300,25);
         panel.add(userLabel);
         
         
         /*
          * Check boxes
          */
+        JLabel allowedTitle = new JLabel("Allowed Parking Lots");
+        allowedTitle.setBounds(215, 45, 150, 25);
+        panel.add(allowedTitle);
+        checkLocs = new JCheckBox[names.size()];
+        for (int i = 0; i < names.size(); i++) {
+        	int j = i / 6;
+        	JCheckBox check = new JCheckBox(names.get(i));
+            check.setBounds(20+200*j, 90+30*(i%6), 200, 30);
+            check.setSelected(true);
+            checkLocs[i] = check;
+            panel.add(check);
+        }
         
-        JCheckBox check1 = new JCheckBox("Parking lot 1");
-        check1.setBounds(190, 70, 100, 30);
-        panel.add(check1);
+        //https://stackoverflow.com/questions/3599908/how-to-check-that-a-jcheckbox-is-checked
         
-        JCheckBox check2 = new JCheckBox("Parking lot 2");
-        check2.setBounds(190, 110, 100, 30);
-        panel.add(check2);
+        JCheckBox checkAll = new JCheckBox("Select/Deselect All");
+        checkAll.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+            	boolean checked = e.getStateChange() == ItemEvent.SELECTED;
+                for (int i = 0; i < checkLocs.length; i++) {
+                	checkLocs[i].setSelected(checked);
+                }
+            }
+        });
+        checkAll.setBounds(20, 60, 150, 30);
+        checkAll.setSelected(true);
+        panel.add(checkAll);
         
-        JCheckBox check3 = new JCheckBox("Parking lot 3");
-        check3.setBounds(190, 150, 100, 30);
-        panel.add(check3);
-
-        JCheckBox check4 = new JCheckBox("Parking lot 4");
-        check4.setBounds(190, 190, 100, 30);
-        panel.add(check4);
+        JLabel restrLabel = new JLabel("Parking Permissions");
+        restrLabel.setBounds(width/2-100, 275, 150, 25);
+        panel.add(restrLabel);
         
-        JCheckBox check5 = new JCheckBox("Handicap");
-        check5.setBounds(95, 250, 100, 30);
+        int numR = Restrictions.values().length;
+        restrictions = new JCheckBox[numR];
+        for (int i = 0; i < numR; i++) {
+        	Restrictions r = Restrictions.values()[i];
+        	if (r.toString().equals("NONE")) continue;
+        	String name = r.toString().toLowerCase();
+        	name = name.substring(0,1).toUpperCase()+name.substring(1);
+        	
+        	JCheckBox check = new JCheckBox(name);
+        	check.setBounds(20+(i)*125,300,100,25);
+        	restrictions[i] = check;
+        	panel.add(check);
+        }
+        
+        /*JCheckBox check5 = new JCheckBox("Handicap");
+        check5.setBounds(95, 280, 100, 30);
         panel.add(check5);
         
         JCheckBox check6 = new JCheckBox("Faculty");
-        check6.setBounds(215, 250, 100, 30);
+        check6.setBounds(215, 280, 100, 30);
         panel.add(check6);
         
         JCheckBox check7 = new JCheckBox("Reserved");
-        check7.setBounds(335, 250, 100, 30);
-        panel.add(check7);
+        check7.setBounds(335, 280, 100, 30);
+        panel.add(check7);*/
         
         /* Creating text field where user is supposed to
          * enter text
          */
-        JTextArea userText = new JTextArea(4,5);
-        userText.setBounds(100,300,300,100);
-        panel.add(userText);
         
+        JLabel destLabel = new JLabel("Enter Destination:");
+        destLabel.setBounds(20, 335, 100, 25);
+        panel.add(destLabel);
         
-
-        /*This is similar to text field but it hides the user
-         * entered data and displays dots instead to protect
-         * the password like we normally see on login screens.
-         */
-        
+        dest = new JTextArea();
+        dest.setBounds(20,360,580,18);
+        panel.add(dest);
 
         // Creating login button
         JButton search = new JButton("Search");
-        search.setBounds(200, 420, 80, 25);
+        search.setBounds(240, 390, 80, 25);
         panel.add(search);
         
         //Opens pop up window

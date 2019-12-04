@@ -4,8 +4,6 @@ package data;
 public class ParkingDeck extends ParkingLocation {
 
     private ParkingSpace[][] spaces;
-    private String locName;
-    private int pricePerSpace;
 
     public ParkingDeck(ParkingSpace[][] spaces, String locName, String locGoogleName, int pricePerSpace) {
         this.spaces = spaces;
