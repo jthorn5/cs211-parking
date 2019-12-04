@@ -50,7 +50,6 @@ public class ParkingDeck extends ParkingLocation {
             			spaces[i][j].setRestrictions(Restrictions.VISITORS);
             		}
         		}
-        	
         		for(int j = 0; (j < spaces[i].length && count <= visitors); j++) {
         			count++;
         			spaces[i][j].setRestrictions(Restrictions.VISITORS);
