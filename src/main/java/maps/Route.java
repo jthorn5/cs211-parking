@@ -8,24 +8,33 @@ import com.google.maps.model.DirectionsResult;
 import com.google.maps.model.TravelMode;
 
 import ParkingProj.Main;
+import data.ParkingLocation;
 
 public class Route {
 	private String origin;
 	private String destination;
 	private long seconds;
 	private long meters;
-	
-	public Route(String origin, String destination) {
-		this.origin = origin;
+	private ParkingLocation loc;
+
+	public Route(ParkingLocation loc, String destination) {
+		this.origin = loc.getLocGoogleName();
 		this.destination = destination;
 		this.seconds = -1;
 		this.meters = -1;
-		reqAPI(origin, destination);
+		this.loc = loc;
+		try {
+			reqAPI(origin, destination);
+		} catch (Exception e) {
+			System.out.println("Error with API request:");
+			System.out.println(e.toString());
+			System.exit(0);
+		}
 	}
-	
-	public void reqAPI(String origin, String destination) {
-		DirectionsApiRequest req = DirectionsApi.newRequest(Main.context)
-				.origin(origin).destination(destination).mode(TravelMode.WALKING);
+
+	public void reqAPI(String origin, String destination) throws Exception {
+		DirectionsApiRequest req = DirectionsApi.newRequest(Main.context).origin(origin).destination(destination)
+				.mode(TravelMode.WALKING);
 		req.setCallback(new PendingResult.Callback<DirectionsResult>() {
 			@Override
 			public void onResult(DirectionsResult result) {
@@ -36,14 +45,18 @@ public class Route {
 
 			@Override
 			public void onFailure(Throwable e) {
-				System.out.println("ERROR: "+e.toString());
+				System.out.println("ERROR: " + e.toString());
 				System.exit(0);
 			}
 		});
 	}
-	
+
 	public boolean isComplete() {
 		return seconds >= 0 && meters >= 0;
+	}
+
+	public ParkingLocation getLoc() {
+		return loc;
 	}
 
 	public String getOrigin() {
@@ -61,9 +74,9 @@ public class Route {
 	public long getMeters() {
 		return meters;
 	}
-	
+
 	public String toString() {
-		return "Origin: "+origin+"\nDestination: "+destination+"\n"+seconds+"s "+meters+"m\n";
+		return "Origin: " + origin + "\nDestination: " + destination + "\n" + seconds + "s " + meters + "m\n";
 	}
-	
+
 }

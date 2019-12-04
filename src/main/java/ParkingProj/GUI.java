@@ -8,15 +8,14 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JCheckBox;
-import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 public class GUI {
     
     public static void main(String[] args) {    
         // Creating instance of JFrame
         JFrame frame = new JFrame("My First Swing Example");
-        // Setting the width and height of frame
-        frame.setSize(500, 500);
+        frame.setSize(960, 540);
+        //frame.setExtendedState(JFrame.MAXIMIZED_BOTH); 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         /* Creating panel. This is same as a div tag in HTML
