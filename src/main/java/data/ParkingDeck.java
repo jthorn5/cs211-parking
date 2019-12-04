@@ -4,8 +4,8 @@ package data;
 public class ParkingDeck extends ParkingLocation {
 
     private ParkingSpace[][] spaces;
-    //private String locName;
-    //private int pricePerSpace;
+    private String locName;
+    private int pricePerSpace;
 
     public ParkingDeck(ParkingSpace[][] spaces, String locName, String locGoogleName, int pricePerSpace) {
         this.spaces = spaces;
@@ -27,12 +27,19 @@ public class ParkingDeck extends ParkingLocation {
         for (int i = 0; i < handiCapped; i++) {
             spaces[0][i].setRestrictions(Restrictions.HANDICAPPED);
         }
-        for (int i = handiCapped; i < staff; i++) {
+        for (int i = handiCapped; i < handiCapped + staff; i++) {
             spaces[0][i].setRestrictions(Restrictions.STAFF);
         }
-        for (int i = staff; i < visitors; i++) {
-            spaces[0][i].setRestrictions(Restrictions.VISITORS);
+        if(handiCapped + staff + visitors < spaces[0].length) {
+        	for (int i = staff + handiCapped; i < staff + handiCapped + visitors; i++) {
+                spaces[0][i].setRestrictions(Restrictions.VISITORS);
+            }
+        }else {
+        	for(int i = 0; i < visitors; i ++) {
+        		spaces[1][i].setRestrictions(Restrictions.VISITORS);
+        	}
         }
+        
     }
 
     public boolean isAvailable(Driver d) {

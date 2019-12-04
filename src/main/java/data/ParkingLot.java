@@ -5,9 +5,9 @@ package data;
  * @author marianaritchie
  */
 public class ParkingLot extends ParkingLocation {
-    //private String locName;
+    private String locName;
     private ParkingSpace[] spaces;
-    //private int pricePerSpace;
+    private int pricePerSpace;
 
     public ParkingLot(String locName, String locGoogleName, ParkingSpace[] spaces, int pricePerSpace) {
         this.locName = locName;
@@ -27,10 +27,10 @@ public class ParkingLot extends ParkingLocation {
         for (int i = 0; i < handiCapped; i++) {
             spaces[i].setRestrictions(Restrictions.HANDICAPPED);
         }
-        for (int i = handiCapped; i < staff; i++) {
+        for (int i = handiCapped; i < staff + handiCapped; i++) {
             spaces[i].setRestrictions(Restrictions.STAFF);
         }
-        for (int i = staff; i < visitors; i++) {
+        for (int i = staff + handiCapped; i < staff + handiCapped + visitors; i++) {
             spaces[i].setRestrictions(Restrictions.VISITORS);
         }
     }
