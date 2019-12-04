@@ -25,12 +25,19 @@ public class ParkingDeck extends ParkingLocation {
         for (int i = 0; i < handiCapped; i++) {
             spaces[0][i].setRestrictions(Restrictions.HANDICAPPED);
         }
-        for (int i = handiCapped; i < staff; i++) {
+        for (int i = handiCapped; i < handiCapped + staff; i++) {
             spaces[0][i].setRestrictions(Restrictions.STAFF);
         }
-        for (int i = staff; i < visitors; i++) {
-            spaces[0][i].setRestrictions(Restrictions.VISITORS);
+        if(handiCapped + staff + visitors < spaces[0].hashCode().length) {
+        	for (int i = staff + handiCapped; i < staff + handiCapped + visitors; i++) {
+                spaces[0][i].setRestrictions(Restrictions.VISITORS);
+            }
+        }else {
+        	for(int i = 0; i < visitors; i ++) {
+        		spaces[1][i].setRestrictions(Restrictions.VISITORS);
+        	}
         }
+        
     }
 
     public boolean isAvailable(Driver d) {
