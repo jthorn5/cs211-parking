@@ -1,3 +1,5 @@
+package ParkingProj;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -8,7 +10,7 @@ import javax.swing.JPanel;
 import javax.swing.JCheckBox;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
-public class SwingFirstExample {
+public class GUI {
     
     public static void main(String[] args) {    
         // Creating instance of JFrame
