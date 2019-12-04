@@ -35,8 +35,26 @@ public class ParkingDeck extends ParkingLocation {
                 spaces[0][i].setRestrictions(Restrictions.VISITORS);
             }
         }else {
-        	for(int i = 0; i < visitors; i ++) {
-        		spaces[1][i].setRestrictions(Restrictions.VISITORS);
+        	/**int count = 0;
+        	for(int i = 1; i < spaces.length; i++) {
+        		for(int j = 0; (j < spaces[i].length && count <= visitors); i++) {
+        			count++;
+        			spaces[i][j].setRestrictions(Restrictions.VISITORS);
+        		}
+        	}*/
+        	int count = 0;
+        	for(int i = 0; i < spaces.length; i++) {
+        		if(i == 0) {
+        			for(int j = handiCapped + staff; (j < spaces[i].length && count <= visitors); j++) {
+            			count++;
+            			spaces[i][j].setRestrictions(Restrictions.VISITORS);
+            		}
+        		}
+        	
+        		for(int j = 0; (j < spaces[i].length && count <= visitors); j++) {
+        			count++;
+        			spaces[i][j].setRestrictions(Restrictions.VISITORS);
+        		}
         	}
         }
         
