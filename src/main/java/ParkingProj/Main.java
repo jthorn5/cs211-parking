@@ -129,6 +129,15 @@ public class Main {
 		return key;
 	}
 
+	//Random Driver generator created by Ching 
+	public Driver randomDriver() {
+		String[] parkingPasses = {"General", "Reserved", "Faculty", "Handicap"};
+		String randomParkingPass = parkingPasses[(int)Math.random()*((4 - 0)+1)+0];
+		int randomDriver = (int)Math.random()*(999999 - 100000)+100000;
+		Driver random = new Driver(randomDriver, randomParkingPass );
+		ParkingLocation.addCar(random);
+		return random; 
+	}
 	private static ArrayList<ParkingLocation> readConfig() throws FileNotFoundException {
 		ArrayList<ParkingLocation> locs = new ArrayList<ParkingLocation>();
 		Scanner sc = new Scanner(new File("ParkingData.txt"));
