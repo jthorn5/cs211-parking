@@ -76,7 +76,7 @@ public class ParkingDeck extends ParkingLocation {
                 for (int j = 0; j < spaces[i].length; j++) {
 
                     if (spaces[i][j].isAvailable(d)) {
-                        spaces[i][j].setLicenseNum(d.getLicensePlate());
+                        spaces[i][j].setLicense(d.getLicensePlate());
                         return true;
                     }
                 }

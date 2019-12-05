@@ -14,11 +14,11 @@ public abstract class ParkingLocation {
     
     abstract public boolean isAvailable(Driver d);
 
-	public String getLocName() {
+	public String getName() {
 		return locName;
 	}
 
-	public String getLocGoogleName() {
+	public String getGoogleName() {
 		return locGoogleName;
 	}
 	

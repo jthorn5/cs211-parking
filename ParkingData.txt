@@ -15,8 +15,9 @@ Rap deck is only parking area with all types of spaces
 
 Parking map link:  https://info.gmu.edu/wp-content/uploads/Fairfax-Parking-Map_2019.pdf 
 
+Campus: George Mason
 Center: George Mason Statue, Fairfax, VA
-Radius(ft): 2640
+Radius ft: 5280
 
 Location: Lot A
 Google Name: Lot A GMU, Fairfax, VA

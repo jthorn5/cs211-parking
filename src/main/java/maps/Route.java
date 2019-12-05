@@ -5,6 +5,7 @@ import com.google.maps.DirectionsApiRequest;
 import com.google.maps.PendingResult;
 import com.google.maps.model.DirectionsLeg;
 import com.google.maps.model.DirectionsResult;
+import com.google.maps.model.LatLng;
 import com.google.maps.model.TravelMode;
 
 import ParkingProj.Main;
@@ -16,13 +17,30 @@ public class Route {
 	private long seconds;
 	private long meters;
 	private ParkingLocation loc;
-
+	
+	private LatLng origCoords;
+	private LatLng destCoords;
+	
 	public Route(ParkingLocation loc, String destination) {
-		this.origin = loc.getLocGoogleName();
+		this.origin = loc.getGoogleName();
 		this.destination = destination;
 		this.seconds = -1;
 		this.meters = -1;
 		this.loc = loc;
+		try {
+			reqAPI(origin, destination);
+		} catch (Exception e) {
+			System.out.println("Error with API request:");
+			System.out.println(e.toString());
+			System.exit(0);
+		}
+	}
+	
+	public Route(String origin, String destination) {
+		this.origin = origin;
+		this.destination = destination;
+		this.seconds = -1;
+		this.meters = -1;
 		try {
 			reqAPI(origin, destination);
 		} catch (Exception e) {
@@ -41,6 +59,8 @@ public class Route {
 				DirectionsLeg leg = result.routes[0].legs[0];
 				seconds = leg.duration.inSeconds;
 				meters = leg.distance.inMeters;
+				origCoords = leg.startLocation;
+				destCoords = leg.endLocation;
 			}
 
 			@Override
@@ -73,6 +93,14 @@ public class Route {
 
 	public long getMeters() {
 		return meters;
+	}
+	
+	public LatLng getOrigCoords() {
+		return origCoords;
+	}
+
+	public LatLng getDestCoords() {
+		return destCoords;
 	}
 
 	public String toString() {

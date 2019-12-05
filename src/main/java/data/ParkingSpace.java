@@ -4,35 +4,33 @@ public class ParkingSpace {
     private int price;
     private Restrictions restrictions;
     private String lot;
-    private int licenseNum;
+    private String license;
 
     public ParkingSpace() {
-        this.price = 0;
-        restrictions = Restrictions.NONE;
-        licenseNum = 0;
-        lot = "";
+    	this(0,"");
+        this.restrictions = Restrictions.NONE;
+        this.license = "";
     }
 
     public ParkingSpace(int price, Restrictions restrictions, String lot) {
-        this(price, restrictions, 0, lot);
+        this(price, restrictions, "", lot);
     }
 
     public ParkingSpace(int price, String lot) {
-        this.price = price;
-        this.lot = lot;
+    	this(price,Restrictions.NONE,"",lot);
     }
 
-    public ParkingSpace(int price, Restrictions restrictions, int licenseNum, String lot) {
+    public ParkingSpace(int price, Restrictions restrictions, String license, String lot) {
         this.price = price;
         this.restrictions = restrictions;
-        this.licenseNum = licenseNum;
+        this.license = license;
         this.lot = lot;
     }
     
     public boolean isAvailable(Driver d) {
         
-        if(licenseNum!=0){
-            return false;
+        if(license.equals("")){
+            return true;
         }
         ParkingPass pass = d.getParkingPass();
         if(pass.getGroups().contains(restrictions)&&(pass.getValidLots().contains(lot))){
@@ -49,8 +47,8 @@ public class ParkingSpace {
         this.restrictions = restrictions;
     }
 
-    public void setLicenseNum(int licenseNum) {
-        this.licenseNum = licenseNum;
+    public void setLicense(String license) {
+        this.license = license;
     }
     
     

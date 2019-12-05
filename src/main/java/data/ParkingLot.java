@@ -38,7 +38,7 @@ public class ParkingLot extends ParkingLocation {
         if (isAvailable(d)) {
             for (int i = 0; i < spaces.length; i++) {
                 if (spaces[i].isAvailable(d)) {
-                    spaces[i].setLicenseNum(d.getLicensePlate());
+                    spaces[i].setLicense(d.getLicensePlate());
                     return true;
                 }
             }

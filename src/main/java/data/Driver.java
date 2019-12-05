@@ -2,7 +2,7 @@ package data;
 
 public class Driver {
 	private ParkingPass pass;
-	private int licensePlate;
+	private String licensePlate;
 	/*private boolean onCampus;
 	private int gNumber;
 	private String fullName;*/
@@ -10,7 +10,7 @@ public class Driver {
 		
 	}
 	
-	public Driver(int licensePlate, ParkingPass pass) {//  boolean onCampus, int gNumber, String fullName) {
+	public Driver(String licensePlate, ParkingPass pass) {//  boolean onCampus, int gNumber, String fullName) {
 		this.pass = pass;
 		this.licensePlate = licensePlate;
 		/*this.onCampus = onCampus;
@@ -22,11 +22,11 @@ public class Driver {
 		this.pass = pass;
 	}
 	
-	public void setLicensePlate(int licensePlate) {
+	public void setLicensePlate(String licensePlate) {
 		this.licensePlate = licensePlate;
 	}
 	
-	public int getLicensePlate() {
+	public String getLicensePlate() {
 		return this.licensePlate;
 	}
 	
