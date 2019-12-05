@@ -145,6 +145,8 @@ public class Main {
 		return random; 
 	}
 	
+	
+	
 	private static ArrayList<ParkingLocation> readConfig() throws FileNotFoundException {
 		ArrayList<ParkingLocation> locs = new ArrayList<ParkingLocation>();
 		Scanner sc = new Scanner(new File("ParkingData.txt"));
