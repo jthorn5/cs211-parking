@@ -34,7 +34,6 @@ public class Main {
 	private static HashMap<String,ParkingLocation> locNames = new HashMap<String,ParkingLocation>();
 	private static ArrayList<ParkingLocation> locations = new ArrayList<ParkingLocation>();
 	
-	//defaults for in case of error, overwritten by readConfig
 	public static String campus;
 	public static String center;
 	public static int radius;
@@ -144,7 +143,6 @@ public class Main {
 		ParkingLocation.addCar(random);
 		return random; 
 	}
-	
 	
 	
 	private static ArrayList<ParkingLocation> readConfig() throws FileNotFoundException {
