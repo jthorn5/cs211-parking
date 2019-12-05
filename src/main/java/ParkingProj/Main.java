@@ -21,6 +21,7 @@ import data.Driver;
 import data.ParkingDeck;
 import data.ParkingLocation;
 import data.ParkingLot;
+import data.Restrictions;
 import maps.Route;
 import maps.SortRoutesByTime;
 
@@ -134,6 +135,7 @@ public class Main {
 		String[] parkingPasses = {"General", "Reserved", "Faculty", "Handicap"};
 		String randomParkingPass = parkingPasses[(int)Math.random()*((4 - 0)+1)+0];
 		int randomDriver = (int)Math.random()*(999999 - 100000)+100000;
+		locations.clone()
 		Driver random = new Driver(randomDriver, randomParkingPass );
 		ParkingLocation.addCar(random);
 		return random; 
