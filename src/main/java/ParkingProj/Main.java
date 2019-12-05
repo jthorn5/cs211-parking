@@ -21,6 +21,8 @@ import data.Driver;
 import data.ParkingDeck;
 import data.ParkingLocation;
 import data.ParkingLot;
+import data.ParkingPass;
+import data.ParkingSpace;
 import data.Restrictions;
 import maps.Route;
 import maps.SortRoutesByTime;
@@ -40,12 +42,14 @@ public class Main {
 	public static Route latestRoute;
 	
 	public static void main(String[] args) {
-		// https://maps.googleapis.com/maps/api/staticmap?center=George+Mason+Statue,Fairfax,VA&zoom=15&size=600x300&maptype=roadmap&markers=color:blue|label:S|40.702147,-74.015794&markers=color:green|label:G|40.711614,-74.012318&markers=color:red|label:C|40.718217,-73.998284&key=AIzaSyAh3NSShZO_ErpmjyHRKtjtOFrwfk0t2FQ
 		// Read in API key
 
 		key = readKey();
 
 		locations = readConfigSafe();
+		
+		//isAvailableTest(3);
+		//isAvailableTest(5);
 		
 		// Create API context
 		context = new GeoApiContext.Builder().apiKey(key).build();
@@ -140,6 +144,7 @@ public class Main {
 		ParkingLocation.addCar(random);
 		return random; 
 	}
+	
 	private static ArrayList<ParkingLocation> readConfig() throws FileNotFoundException {
 		ArrayList<ParkingLocation> locs = new ArrayList<ParkingLocation>();
 		Scanner sc = new Scanner(new File("ParkingData.txt"));
@@ -220,4 +225,21 @@ public class Main {
 			return null; // will never be called because of exit but required to compile
 		}
 	}
+	
+	public static void isAvailableTest(int initCars) {
+		ParkingLot testLot = new ParkingLot("Tester", "Tester", 5, 5, 0, 0, 0);
+		ParkingPass testPass = new ParkingPass();
+		for(int i = 0; i < initCars; i ++) {
+			testLot.addCar(new Driver("12345", testPass));
+		}
+		System.out.println("Parking lot: ");
+		System.out.println(testLot);
+		System.out.println("\nIs it available?  \n(Should be true if input is anything less than 5, yours was " + initCars + ".)");
+		System.out.println(testLot.isAvailable(new Driver("newDriver", testPass)));
+		
+	}
+	
+	
+	
+	
 }

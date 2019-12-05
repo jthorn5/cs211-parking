@@ -14,6 +14,11 @@ public class ParkingPass {
         this.validLots = validLots;
         this.groups = groups;
     }
+    
+    public ParkingPass() {
+        this.validLots = new ArrayList<String>();
+        this.groups = new ArrayList<Restrictions>();
+    }
 
     public ArrayList<String> getValidLots() {
         return validLots;

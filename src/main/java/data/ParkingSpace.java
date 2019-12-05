@@ -42,6 +42,10 @@ public class ParkingSpace {
     public int getPrice() {
         return price;
     }
+    
+    public String getLicense() {
+    	return license;
+    }
 
     public void setRestrictions(Restrictions restrictions) {
         this.restrictions = restrictions;

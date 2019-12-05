@@ -54,5 +54,17 @@ public class ParkingLot extends ParkingLocation {
         }
         return false;
     }
+    
+    public String toString() {
+    	String end = "";
+    	for(int i = 0; i < spaces.length; i++) {
+    		if(("").equals(spaces[i].getLicense())) {
+    			end += "NULL" + " ";
+    		}else{
+    		end += spaces[i].getLicense() + " ";
+    		}
+    	}
+    	return end;
+    }
 
 }
